@@ -1,4 +1,4 @@
-from lib.utils import connect, tor_init
+from .lib.utils import connect, tor_init
 
 
 class Crawler:

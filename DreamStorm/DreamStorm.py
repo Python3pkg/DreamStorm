@@ -1,8 +1,8 @@
-import Queue
+import queue
 import random
 
-from Crawler import Crawler
-from lib.utils import daemonThread
+from .Crawler import Crawler
+from .lib.utils import daemonThread
 
 
 class DreamStorm:
@@ -10,10 +10,10 @@ class DreamStorm:
         self.counter = 0
         self.threads = threads
         self.tor = tor
-        self.q = (Queue.Queue(), Queue.Queue())
+        self.q = (queue.Queue(), queue.Queue())
         self.qq = []
-        for i in xrange(self.threads):
-            self.qq.append((Queue.Queue(), Queue.Queue()))
+        for i in range(self.threads):
+            self.qq.append((queue.Queue(), queue.Queue()))
             c = Crawler(self.qq[-1], self.tor)
             daemonThread(c.run)
 

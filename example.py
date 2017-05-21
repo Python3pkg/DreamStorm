@@ -2,7 +2,7 @@ from DreamStorm import DreamStorm
 
 
 def example_callback(page, headers):
-    print "server : " + headers["server"]
+    print("server : " + headers["server"])
 
 
 dream = DreamStorm(5, tor=True)

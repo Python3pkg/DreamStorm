@@ -1,7 +1,7 @@
 import socks
 import socket
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import threading
 
 
@@ -17,13 +17,13 @@ def tor_init():
 
 
 def connect(url, headers, postdata):
-    postdata = urllib.urlencode(postdata)
+    postdata = urllib.parse.urlencode(postdata)
     try:
         if postdata:
-            request = urllib2.Request(url, headers=headers, data=postdata)
+            request = urllib.request.Request(url, headers=headers, data=postdata)
         else:
-            request = urllib2.Request(url, headers=headers)
-        opener = urllib2.build_opener()
+            request = urllib.request.Request(url, headers=headers)
+        opener = urllib.request.build_opener()
         response = opener.open(request)
     except:
         return "", {}
